@@ -1,0 +1,118 @@
+.pokemons {
+    margin: auto;
+    padding: 30px 30px;
+    max-width: 600px;
+
+    text-align: center;
+}
+
+.pokemons__title {
+    margin-bottom: 50px;
+    
+    font-size: 5rem;
+    font-weight: var(--title-font-weight);
+
+    color: var(--primary-text-color);
+}
+
+.pokemons__input {
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 400px;
+
+    font-size: 1.9rem;
+
+    border: none;
+    border-radius: 21px;
+    background-color: #333;
+    outline: none;
+
+    color: var(--tertiary-text-color);
+}
+:focus { /* every item */
+    outline: 4px solid #30BCEB;
+
+    transition: outline .1s;
+}
+
+.pokemons-results {
+    margin: auto;
+    padding-bottom: 50px;
+    max-width: 350px;
+}
+
+.pokemons-results__dots {
+    display: inline-block;
+
+    width: 100%;
+    
+    font-size: 3.5rem;
+    font-weight: var(--title-font-weight);
+
+    text-align: center;
+    line-height: .1rem;
+}
+
+.pokemons-results__pokemon {
+    display: flex;
+
+    align-items: center;
+
+    margin: 17px 0;
+    padding: 17px 25px;
+
+    background-color: #333;
+    border-radius: 20px;
+    box-shadow: 0 0 8px #fff1;
+    
+    font-size: 2rem;
+    font-weight: var(--subtitle-font-weight);
+    
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: transform .2s;
+}
+.pokemons-results__pokemon:hover {
+    transform: scale(1.02);
+
+    transition: transform .2s;
+}
+
+.pokemons-results__pokemon img {
+    margin-right: 20px;
+    width: 50px;
+    
+    filter: invert(1);
+    opacity: .9;
+    
+    transition: transform .2s;
+}
+.pokemons-results__pokemon:hover img {
+    transform: rotate(10deg);
+    
+    transition: transform .2s;
+}
+
+@media screen and (max-width: 500px) {
+    .pokemons__input {
+        padding: 15px 20px;
+        max-width: 200px;
+
+        font-size: 1.7rem;
+    }
+
+    .pokemons-results {
+        max-width: 270px;
+    }
+    
+    .pokemons-results__pokemon {
+        padding: 12px 20px;
+
+        font-size: 1.6rem;
+    }
+    .pokemons-results__pokemon img {
+        margin-right: 10px;
+        width: 38px;
+    }
+}

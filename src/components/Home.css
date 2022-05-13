@@ -1,0 +1,155 @@
+.home__header__nav {
+  width: 100%;
+}
+
+.home__header__nav--mobile {
+  display: none;
+}
+
+.home__header__nav--desktop {
+  display: flex;
+
+  justify-content: space-between;
+  
+  padding: 0 20px;
+  margin: auto;
+  margin-top: 50px;
+  width: 100%;
+  max-width: 600px;
+  
+  list-style-type: none;
+}
+
+.home__header__nav--desktop li a {
+  display: inline-block;
+  padding: 10px 36px;
+  
+  background-color: #333;
+  border-radius: 15px;
+  
+  font-size: 1.8rem;
+  font-weight: var(--text-font-weight);
+  
+  color: var(--secondary-text-color);
+  text-decoration: none;
+
+  transition: transform .2s;
+}
+.home__header__nav--desktop li a:hover {
+  transform: scale(1.02);
+  transition: transform .2s;
+} 
+
+.home__header {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+  height: 500px;
+
+  border-radius: 0 0 10% 10%;
+}
+
+.home__header__title {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  
+  margin-top: 50px;
+  width: 300px;
+  height: 300px;
+  
+  font-size: 9rem;
+  font-weight: var(--title-font-weight);
+  
+  border-radius: 50%;
+  background-color: rgb(48, 188, 235);
+
+  color: #fff;
+  text-shadow: 3px 3px 1px black;
+}
+
+.home__routes {
+  display: grid;
+
+  grid-template: 120px / repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 120px;
+  grid-gap: 20px;
+  justify-content: center;
+  
+  margin: 0 auto 100px;
+  padding: 30px;
+  max-width: 1000px;
+  height: 2000px;
+}
+
+.home__routes__route:first-child {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.home__routes__route {
+  position: relative;
+  display: flex;
+  
+  align-items: flex-end;
+  
+  padding: 100px 20px 20px;
+
+  background-color: rgb(213, 1, 1);
+  border-radius: 15px;
+  box-shadow: 0 0 8px #fff1;
+
+  font-size: 3rem;
+  font-weight: var(--subtitle-font-weight);
+
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  
+  overflow: hidden;
+
+  transition: transform .2s;
+}
+.home__routes__route:hover {
+    transform: scale(1.02);
+    
+    transition: transform .2s;
+}
+
+.home__routes__route img {
+    position: absolute;
+    
+    right: -20px;
+    bottom: -20px;
+    
+    width: 110px;
+    
+    filter: invert(1);
+    opacity: .8;
+    transition: transform .2s;
+}
+.home__routes__route:hover img {
+    transform: rotate(10deg);
+
+    transition: transform .2s;
+}
+
+@media screen and (max-width: 500px) {
+  .home__header__nav--desktop {
+    display: none;
+  }
+
+  .home__header {
+    height: 320px;
+  }
+
+  .home__header__title {
+    height: 200px;
+    width: 200px;
+    
+    font-size: 5.5rem;
+  }
+}
