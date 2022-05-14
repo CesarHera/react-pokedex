@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Route, Routes, HashRouter } from 'react-router-dom';
+import { Route, Routes, HashRouter, BrowserRouter } from 'react-router-dom';
 
 import './App.css';
 
@@ -11,13 +11,13 @@ import Pokemon from './components/Pokemon';
 class App extends React.Component {
   render = () => {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
-          <Route exact path='/#/react-pokedex' element={<Home />}></Route>
+          <Route exact path='/' element={<Home />}></Route>
           {/* Obsolete route <Route path='/react-pokedex/pokemons' element={<Pokemons />}></Route>*/}
-          <Route exact path='/#/react-pokedex/pokemon/:id' element={<Pokemon />} ></Route>
+          <Route exact path='/pokemon/:id' element={<Pokemon />} ></Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }

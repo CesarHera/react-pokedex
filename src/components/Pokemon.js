@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import pokeballIcon from '../images/pokeball-icon.jpg';
 
@@ -42,12 +42,12 @@ const Pokemon = (props) => {
                     {
                         types.map((type, key) => {
                             return (
-                                <a
-                                 href={type.url}
+                                <Link
+                                 to={type.url}
                                  className='pokemon-header__types__type' 
                                  key={key}>
                                      {type.name}
-                                </a>
+                                </Link>
                             )
                         })
                     }

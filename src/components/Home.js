@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Pokemons from "./Pokemons";
 
@@ -12,10 +13,10 @@ class Home extends React.Component {
                 <nav className='home__header__nav'>
                   <ul className='home__header__nav--desktop'>
                     <li>
-                      <a href="/">Home</a>
+                      <Link to="/">Home</Link>
                     </li>
                     <li>
-                      <a href="https://github.com/CesarHera">Github</a>
+                      <a href="https://www.github.com/CesarHera">Github</a>
                     </li>
                     <li>
                       <a href="https://cesarhera.github.io/web-portfolio/">Portfolio</a>
@@ -25,10 +26,10 @@ class Home extends React.Component {
                     <i className="home__header__nav--mobile__trigger"></i>
                     <ul className="home__header__nav--mobile__list">
                       <li>
-                        <a href="/">Home</a>
+                        <Link to="/">Home</Link>
                       </li>
                       <li>
-                        <a href="https://github.com/CesarHera">Github</a>
+                        <a href="https://www.github.com/CesarHera">Github</a>
                       </li>
                       <li>
                         <a href="https://cesarhera.github.io/web-portfolio/">Portfolio</a>

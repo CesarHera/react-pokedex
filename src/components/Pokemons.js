@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import './Pokemons.css';
 
@@ -32,23 +33,23 @@ class Pokemons extends React.Component {
                     {this.state.pokemons.map((poke, key) => {
                         if(this.state.searchTerm === '') {
                             return (
-                                <a key={key} className="pokemons-results__pokemon" href={`/#/react-pokedex/pokemon/${key}`}>
+                                <Link key={key} className="pokemons-results__pokemon" to={`/pokemon/${key}`}>
                                     <img src={pokeballIcon} alt='Pokeball icon png'></img>
                                     <div className="pokemons-results__pokemon__details">
                                         <p>Num. {key + 1}</p>
                                         <p><b>{poke.name}</b></p>
                                     </div>
-                                </a>    
+                                </Link>    
                             );
                         } else if(poke.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())) {
                             return (
-                                <a key={key} className="pokemons-results__pokemon" href={`/#/react-pokedex/pokemon/${key}`}>
+                                <Link key={key} className="pokemons-results__pokemon" to={`/pokemon/${key}`}>
                                     <img src={pokeballIcon} alt='Pokeball icon png'></img>
                                     <div className="pokemons-results__pokemon__details">
                                         <p>Num. {key + 1}</p>
                                         <p><b>{poke.name}</b></p>
                                     </div>
-                                </a>    
+                                </Link>    
                             );
                         } else {
                             return false;
