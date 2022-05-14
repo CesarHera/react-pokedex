@@ -13,7 +13,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Routes>
-          <Route exact path='/react-pokedex' element={<Home />}></Route>
+          <Route path='/react-pokedex' element={<Home />}></Route>
           <Route path='/react-pokedex/pokemons' element={<Pokemons />}></Route>
           <Route path='/react-pokedex/pokemon/:id' element={<Pokemon />} ></Route>
         </Routes>

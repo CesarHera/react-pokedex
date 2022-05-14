@@ -32,7 +32,7 @@ class Pokemons extends React.Component {
                     {this.state.pokemons.map((poke, key) => {
                         if(this.state.searchTerm === '') {
                             return (
-                                <a key={key} className="pokemons-results__pokemon" href={`https://cesarhera.github.io/react-pokedex/pokemon/${key}`}>
+                                <a key={key} className="pokemons-results__pokemon" href={`/react-pokedex/pokemon/${key}`}>
                                     <img src={pokeballIcon} alt='Pokeball icon png'></img>
                                     <div className="pokemons-results__pokemon__details">
                                         <p>Num. {key + 1}</p>
@@ -42,7 +42,7 @@ class Pokemons extends React.Component {
                             );
                         } else if(poke.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())) {
                             return (
-                                <a key={key} className="pokemons-results__pokemon" href={`https://cesarhera.github.io/react-pokedex/pokemon/${key}`}>
+                                <a key={key} className="pokemons-results__pokemon" href={`/react-pokedex/pokemon/${key}`}>
                                     <img src={pokeballIcon} alt='Pokeball icon png'></img>
                                     <div className="pokemons-results__pokemon__details">
                                         <p>Num. {key + 1}</p>
