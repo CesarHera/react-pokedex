@@ -1,23 +1,23 @@
 import React from 'react';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes, HashRouter } from 'react-router-dom';
 
 import './App.css';
 
 import Home from './components/Home';
-import Pokemons from './components/Pokemons';
+// import Pokemons from './components/Pokemons';
 import Pokemon from './components/Pokemon';
 
 class App extends React.Component {
   render = () => {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
-          <Route path='/react-pokedex' element={<Home />}></Route>
-          <Route path='/react-pokedex/pokemons' element={<Pokemons />}></Route>
-          <Route path='/react-pokedex/pokemon/:id' element={<Pokemon />} ></Route>
+          <Route exact path='/#/react-pokedex' element={<Home />}></Route>
+          {/* Obsolete route <Route path='/react-pokedex/pokemons' element={<Pokemons />}></Route>*/}
+          <Route exact path='/#/react-pokedex/pokemon/:id' element={<Pokemon />} ></Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
