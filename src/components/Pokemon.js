@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from "react-router-dom";
-
-import pokeballIcon from '../images/pokeball-icon.jpg';
+import { Helmet } from "react-helmet";
+import { useParams } from "react-router-dom";
 
 import './Pokemon.css';
+
+const PokemonTypesDB = [['normal', 'A8A878'], ['fire', 'F08030'], ['fighting', 'C03028'], ['water', '6890F0'], ['flying', 'A890F0'], ['grass', '78C850'], ['poison', 'A040A0'], ['electric', 'F8D030'], ['ground', 'E0C068'], ['psychic', 'F85888'], ['rock', 'B8A038'], ['ice', '98D8D8'], ['bug', 'A8B820'], ['dragon', '7038F8'], ['ghost', '705898'], ['dark', '705848'], ['steel', 'B8B8D0'], ['fairy', 'EE99AC']]
 
 const Pokemon = (props) => {
     const [pokemon, setPokemon] = useState(0);
     const [types, setTypes] = useState([]);
     const [advancedStats, setAdvancedStats] = useState([]);
+    const [sprite, setSprite] = useState('');
+    const [bgcolor, setBgcolor] = useState('');
     
     const id = useParams().id;
 
+    
+    // Fetching and rendering pokemon data
     useEffect(() => {
         const fetchPokemons = async () => {
             const pokemonsRes = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=1200');
@@ -19,10 +24,14 @@ const Pokemon = (props) => {
 
             const pokemonRes = await fetch(pokemonsData.results[id].url)
             const pokemonData = await pokemonRes.json();
+            setSprite(pokemonData.sprites.front_default);
             setPokemon(pokemonData);
-
+            
             const typesData = await pokemonData.types.map((slot) => {return {name: slot.type.name, url: slot.type.url}})
             setTypes(typesData);
+            
+            // matching types to get bgcolor
+            setBgcolor(PokemonTypesDB.filter(type => type[0] === typesData[0].name)[0][1]); 
 
             const advancedStatsData = await pokemonData.stats.map((slot) => {return {name: slot.stat.name, base: slot.base_stat, effort: slot.effort}})
             setAdvancedStats(advancedStatsData);
@@ -33,26 +42,31 @@ const Pokemon = (props) => {
 
     return (
         <div>
+            <Helmet>
+                <style>{`body { background-color: #${bgcolor === '' ? 'BE3232' : bgcolor};}`}</style>
+            </Helmet>
             <header className='pokemon-header'>
                 <div className='pokemon-header__details'>
                     <h1 className='pokemon-header__details__name'>{pokemon.name}</h1>
-                    <p className='pokemon-header__details__number'>Num. #{pokemon.id}</p>
+                    <p className='pokemon-header__details__number'>Num. {pokemon.id}</p>
                 </div>
                 <div className='pokemon-header__types'>
                     {
                         types.map((type, key) => {
+                            console.log(PokemonTypesDB.filter(DBtype => DBtype[0] === type.name)[0][1]);
                             return (
-                                <Link
-                                 to={type.url}
+                                <span
                                  className='pokemon-header__types__type' 
-                                 key={key}>
-                                     {type.name}
-                                </Link>
+                                 key={key}
+                                 style={{ backgroundColor: `#${PokemonTypesDB.filter(DBtype => DBtype[0] === type.name)[0][1]}` }}
+                                 >
+                                    {type.name}
+                                </span>
                             )
                         })
                     }
                 </div>
-                <img title='Pokemon image' className='pokemon-header__image' src={pokeballIcon} alt='Pokeball icon jpg' />
+                <img title='Pokemon image' className={sprite ? `pokemon-header__image sprite` : 'pokemon-header__image'} src={sprite ? sprite : ''} alt='Pokeball icon jpg' />
             </header>
             <main className='pokemon-main'>
                 <div className='pokemon-main__stats--basic'>

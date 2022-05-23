@@ -11,13 +11,11 @@ import Pokemon from './components/Pokemon';
 class App extends React.Component {
   render = () => {
     return (
-      <BrowserRouter>
         <Routes>
           <Route exact path='/' element={<Home />}></Route>
           {/* Obsolete route <Route path='/react-pokedex/pokemons' element={<Pokemons />}></Route>*/}
           <Route exact path='/pokemon/:id' element={<Pokemon />} ></Route>
         </Routes>
-      </BrowserRouter>
     );
   }
 }

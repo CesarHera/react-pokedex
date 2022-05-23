@@ -15,11 +15,10 @@
 html {
   font-size: 62.5%;
 
-  background-color: var(--background-color);
 }
 body {
   font-size: 1.6rem;
-
-  color: var(--tertiary-text-color)
+  
+  color: var(--tertiary-text-color);
 }
 
