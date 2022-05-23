@@ -193,7 +193,7 @@
     }
 
     .pokemon-header__image {
-        height: unset;
+        height: 200px;
         width: 200px;
     }
 
